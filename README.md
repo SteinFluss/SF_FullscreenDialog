@@ -1,5 +1,5 @@
 # SF_FullscreenDialog
-#Easy Android fullscreen dialog implemenation
+Easy Android fullscreen dialog implemenation
 
 # Usage
 
