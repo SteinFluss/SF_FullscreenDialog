@@ -8,7 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="full_screen_dialog" parent="android:Theme.Material.Light">
+    <style name="full_screen_dialog" parent="AppTheme">
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowIsFloating">false</item>
         <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
