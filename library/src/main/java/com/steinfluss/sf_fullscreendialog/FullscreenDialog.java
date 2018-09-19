@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -14,19 +15,9 @@ public class FullscreenDialog extends Dialog {
 
     private int resId;
 
-    private View view;
-
-    private OnViewCreatedListener onViewCreatedListener;
-
     public FullscreenDialog(Activity act){
         //step 1, required. to stretch the dialog to full screen
         super(act, R.style.full_screen_dialog);
-        setOnDismissListener(new OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                FullscreenDialog.this.onDismiss();
-            }
-        });
     }
 
     @Override
@@ -45,37 +36,8 @@ public class FullscreenDialog extends Dialog {
         }catch (Exception ae){}
     }
 
-    @Override
-    public View onCreatePanelView(int featureId) {
-
-        View contentView = super.onCreatePanelView(featureId);
-        view = contentView;
-        if (onViewCreatedListener != null){
-            onViewCreatedListener.onCreated(view);
-        }
-        return contentView;
-    }
-
     public FullscreenDialog setContentViewRes(int resId){
         this.resId = resId;
         return this;
-    }
-
-
-    public FullscreenDialog setOnViewCreatedListener(OnViewCreatedListener onViewCreatedListener){
-        this.onViewCreatedListener = onViewCreatedListener;
-        return this;
-    }
-
-    public View getView(){
-        return view;
-    }
-
-    public interface OnViewCreatedListener {
-        void onCreated(View view);
-    }
-
-    private void onDismiss(){
-
     }
 }
